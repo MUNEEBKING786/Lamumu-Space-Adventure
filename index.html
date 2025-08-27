@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Lamumu Space Adventures</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Add mobile optimization meta tags -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#0a0a23">
+</head>
+<body>
+    <div id="gameContainer">
+        <canvas id="gameCanvas" width="800" height="600"></canvas>
+        
+        <div id="startScreen" class="screen">
+            <div class="title-container">
+                <h1 class="game-title">LAMUMU SPACE</h1>
+                <h2 class="subtitle">ADVENTURES</h2>
+                <div class="nft-badge">Lamumudotxyz Game</div>
+            </div>
+            <div class="instructions">
+                <p>🐄 Guide Lamumu through Obstacle!</p>
+                <p>🌟 Collect Commondot tokens for power!</p>
+                <p>⚡ Use TAP/CLICK/SPACE to jump through space!</p>
+            </div>
+            <button id="startBtn" class="game-btn">START ADVENTURE</button>
+            <div class="audio-controls">
+                <button id="musicToggle" class="audio-btn">🔊 MUSIC ON</button>
+            </div>
+        </div>
+
+        <div id="gameOverScreen" class="screen hidden">
+            <div class="game-over-container">
+                <h1 class="game-over-title">GAME OVER!</h1>
+                <div id="finalScore" class="final-score">Score: 0</div>
+                <div id="finalTokens" class="final-tokens">Tokens: 0</div>
+                <div class="achievements" id="achievements"></div>
+                <button id="restartBtn" class="game-btn">RESTART MISSION</button>
+                <button id="backToMenuBtn" class="game-btn secondary">MAIN MENU</button>
+            </div>
+        </div>
+
+        <div id="gameUI" class="hidden">
+            <div class="ui-top">
+                <div class="score-display">
+                    <span class="score-label">DISTANCE</span>
+                    <span id="score">0</span>
+                </div>
+                <div class="tokens-display">
+                    <span class="token-label">TOKENS</span>
+                    <span id="tokens">0</span>
+                </div>
+                <div class="powerup-indicator" id="powerupIndicator">
+                    <span class="powerup-label">POWER</span>
+                    <div class="powerup-bar" id="powerupBar"></div>
+                </div>
+            </div>
+            
+            <!-- Mobile controls -->
+            <div class="mobile-controls">
+                <button id="jumpBtn" class="jump-button">TAP TO JUMP</button>
+            </div>
+        </div>
+
+        <div class="particle-bg" id="particleBg"></div>
+        
+        <!-- Audio elements -->
+        <audio id="backgroundMusic" loop preload="auto">
+            <source src="assets/cosmic_theme.mp3" type="audio/mpeg">
+            <source src="assets/cosmic_theme.ogg" type="audio/ogg">
+        </audio>
+        
+        <audio id="jumpSound" preload="auto">
+            <source src="assets/jump_sound.mp3" type="audio/mpeg">
+            <source src="assets/jump_sound.ogg" type="audio/ogg">
+        </audio>
+        
+        <audio id="collectSound" preload="auto">
+            <source src="assets/collect_sound.mp3" type="audio/mpeg">
+            <source src="assets/collect_sound.ogg" type="audio/ogg">
+        </audio>
+        
+        <audio id="gameOverSound" preload="auto">
+            <source src="assets/game_over_sound.mp3" type="audio/mpeg">
+            <source src="assets/game_over_sound.ogg" type="audio/ogg">
+        </audio>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
